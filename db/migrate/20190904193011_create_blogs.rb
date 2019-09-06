@@ -5,6 +5,8 @@ class CreateBlogs < ActiveRecord::Migration[6.0]
       t.string :headline
       t.string :content
       t.string :date
+      t.integer :like
+      t.integer :dislike
 
       t.timestamps
     end

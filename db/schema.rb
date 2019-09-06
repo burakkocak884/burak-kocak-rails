@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_09_04_193159) do
     t.string "headline"
     t.string "content"
     t.string "date"
+    t.integer "like"
+    t.integer "dislike"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

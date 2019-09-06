@@ -20,11 +20,29 @@ class BlogsController < ApplicationController
         @blog.save
         render json: @blog
     end
+    def update
+        
+        @blog = Blog.find(params[:id])
+       
+         if (params[:thought] == 1 && @blog.like == nil)
+            @blog.like = 1
+            
+         elsif (params[:thought] == 1 && @blog.like != nil)
+            @blog.like += 1
+         elsif (params[:thought] == 2 && @blog.dislike == nil)
+            @blog.dislike = 1
+            elsif (params[:thought] == 2 && @blog.dislike != nil)
+                @blog.dislike += 1
+         end
+       
+         @blog.save
+         render json: @blog
+    end
 
      private
      
     def blog_params
-     params.require(:blog).permit(:username, :headline, :content, :date)
+     params.require(:blog).permit(:username, :headline, :content, :date, :like, :dislike)
               
     end
 end
